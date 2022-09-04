@@ -1,0 +1,45 @@
+.login-color {
+    color: #588abd !important;
+}
+
+.login-bg {
+    background-color: #A4CFFB;
+}
+
+.login-card {
+    border-radius: 20px;
+}
+
+.login-card .card-header {
+    border: 0 !important;
+    background-color: transparent;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.login-card input {
+    border: 0 !important;
+    border-bottom: 1px solid darkgray !important;
+    border-radius: 0;
+    background-color: transparent !important;
+    padding: 2px;
+    margin-bottom: 2px !important;
+}
+
+.login-card input:focus {
+    box-shadow: none;
+}
+
+.login-card .form-control::placeholder {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-card button {
+    background-color: #5887C5 !important;
+    border-radius: 10px;
+}
