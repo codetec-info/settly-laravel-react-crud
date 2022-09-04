@@ -28,13 +28,15 @@ class ClientController extends Controller
         }
 
         $clients = Client::where('admin_id', auth()->id())
-                ->when($searchInput, function ($query) use ($columns, $request) {
-                    foreach ($columns as $column) {
-                        if ($column == $columns[0])
-                            $query->where($column, 'like', '%' . $request->search . '%');
-                        else
-                            $query->orWhere($column, 'like', '%' . $request->search . '%');
-                    }
+                ->when($searchInput, function ($q) use ($columns, $request) {
+                    $q->where(function ($query) use ($columns, $request) {
+                        foreach ($columns as $column) {
+                            if ($column == $columns[0])
+                                $query->where($column, 'like', '%' . $request->search . '%');
+                            else
+                                $query->orWhere($column, 'like', '%' . $request->search . '%');
+                        }
+                    });
                 })
                 ->orderBy($orderColumn, $orderDirection)
                 ->paginate(10);
